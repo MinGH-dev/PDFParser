@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/openlogic-openjdk-8u352-b08-windows-64"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib_pdfbox/avalon-framework-4.1.5.jar"/>
+	<classpathentry kind="lib" path="lib_pdfbox/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib_pdfbox/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib_pdfbox/logkit-1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib_pdfbox/pdfbox-2.0.24.jar"/>
+	<classpathentry kind="lib" path="lib_pdfbox/fontbox-2.0.24.jar"/>
+	<classpathentry kind="lib" path="tabula/bcprov-jdk15on-1.69.jar"/>
+	<classpathentry kind="lib" path="tabula/commons-cli-1.4.jar"/>
+	<classpathentry kind="lib" path="tabula/commons-csv-1.9.0.jar"/>
+	<classpathentry kind="lib" path="tabula/gson-2.8.7.jar"/>
+	<classpathentry kind="lib" path="tabula/jai-imageio-core-1.4.0.jar"/>
+	<classpathentry kind="lib" path="tabula/jai-imageio-core-1.4.0 (1).jar"/>
+	<classpathentry kind="lib" path="tabula/jai-imageio-jpeg2000-1.4.0.jar"/>
+	<classpathentry kind="lib" path="tabula/jbig2-imageio-3.0.3.jar"/>
+	<classpathentry kind="lib" path="tabula/jts-core-1.18.1.jar"/>
+	<classpathentry kind="lib" path="tabula/slf4j-api-1.7.32.jar"/>
+	<classpathentry kind="lib" path="tabula/slf4j-simple-1.7.32.jar"/>
+	<classpathentry kind="lib" path="tabula/tabula-1.0.5.jar"/>
+	<classpathentry kind="lib" path="json/json-simple-1.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
