@@ -21,5 +21,6 @@
 	<classpathentry kind="lib" path="tabula/slf4j-simple-1.7.32.jar"/>
 	<classpathentry kind="lib" path="tabula/tabula-1.0.5.jar"/>
 	<classpathentry kind="lib" path="json/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="json/Util.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
