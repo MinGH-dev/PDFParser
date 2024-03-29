@@ -1,8 +1,11 @@
+package com.daolfn.prototype;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -101,6 +104,26 @@ public class Util {
         }
     }
 	 */
+	
+	public static JSONObject splitTitle (ContextType type, String contextText) {
+		JSONObject obj = new JSONObject();
+		
+		Pattern chapterPattern = Pattern.compile("제\\s*(\\d+)\\s*"+type.getContextName()+"\\s*([^\\n\\r]*)");
+        Matcher chapterMatcher = chapterPattern.matcher(contextText);
+
+        while (chapterMatcher.find()) {
+            String chapter = chapterMatcher.group(1);
+            obj.put(type.toString(), "제" + chapter + type.getContextName());
+            
+            String chapterName = chapterMatcher.group(2).trim();
+            obj.put(type.toString()+"_NAME", chapterName);
+//            System.out.println("{\""+type+"\":\"제" + chapter + type.getContextName() + "\", \""+type+"_NAME\":\"" + chapterName + "\"}");
+        }
+        
+        return obj;
+	}
+	
+	
     public static void prettyPrint(StringBuilder sb, Object obj, int indent) {
         if (obj instanceof String) {
             Object toJson = null;
@@ -173,6 +196,62 @@ public class Util {
         }
         return content;
     }
+    
+    /**
+     * PDFBox의 좌표와 크기 정보를 React PDF Viewer 좌표계로 변환.
+     *
+     * @param pdfBoxX        PDFBox에서 추출한 x 좌표
+     * @param pdfBoxY        PDFBox에서 추출한 y 좌표
+     * @param pdfBoxHeight   PDFBox에서 추출한 요소의 높이
+     * @param pdfBoxWidth    PDFBox에서 추출한 요소의 너비
+     * @param pageHeight     PDF 페이지의 높이
+     * @param scalingFactor  스케일링 비율 또는 줌 레벨
+     * @return               변환된 좌표와 크기를 포함하는 Rectangle 객체
+     */
+    public static Rectangle transformToReactPDFViewerCoordinates(
+        float pdfBoxX, float pdfBoxY, float pdfBoxHeight, float pdfBoxWidth,
+        float pageHeight, float scalingFactor) {
+        
+        // 변환된 Y 좌표는 페이지 높이에서 원본 Y 좌표와 높이를 빼고, 스케일링을 적용합니다.
+        float transformedY = (pageHeight - pdfBoxY - pdfBoxHeight) * scalingFactor;
+        // X 좌표와 너비에 스케일링 적용
+        float transformedX = pdfBoxX * scalingFactor;
+        float transformedWidth = pdfBoxWidth * scalingFactor;
+        float transformedHeight = pdfBoxHeight * scalingFactor;
 
+        // 변환된 좌표와 크기를 가진 Rectangle 반환
+        return new Rectangle(transformedX, transformedY, transformedWidth, transformedHeight);
+    }
+
+    /**
+     * 좌표와 크기를 나타내는 Rectangle 클래스.
+     */
+    public static class Rectangle {
+        public final float x;
+        public final float y;
+        public final float width;
+        public final float height;
+
+        public Rectangle(float x, float y, float width, float height) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+        }
+        
+        public JSONObject toJson () {
+        	return new JSONObject() {{
+        		put("x", x);
+        		put("y", y);
+        		put("width", width);
+        		put("height", height);
+        	}};
+        }
+        
+        @Override
+        public String toString() {
+            return String.format("Rectangle{x=%.2f, y=%.2f, width=%.2f, height=%.2f}", x, y, width, height);
+        }
+    }
     
 }
