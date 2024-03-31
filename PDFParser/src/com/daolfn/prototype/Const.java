@@ -1,9 +1,9 @@
 package com.daolfn.prototype;
 
 public class Const {
-//	public final static String FILE_PATH = "C:UsersdlsqnDownloads장애관리지침.pdf";
+	public final static String FILE_PATH = "C:\\Users\\dlsqn\\Downloads\\장애관리지침.pdf";
 	
-	public final static String FILE_PATH = "C:\\DEV\\GRE\\1-1_당사규정지침\\장애관리지침[4]_변경후_175.pdf";
+//	public final static String FILE_PATH = "C:\\DEV\\GRE\\1-1_당사규정지침\\장애관리지침[4]_변경후_175.pdf";
 	public final static String[][] PARAGRAPH = {
 			{"①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳", "㉑", "㉒", "㉓", "㉔", "㉕", "㉖", "㉗", "㉘", "㉙", "㉚"}
 			,

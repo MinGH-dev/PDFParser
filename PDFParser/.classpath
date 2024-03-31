@@ -26,5 +26,6 @@
 	<classpathentry kind="lib" path="tabula/tabula-1.0.5.jar"/>
 	<classpathentry kind="lib" path="json/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="json/Util.jar"/>
+	<classpathentry kind="lib" path="jpa/javax.persistence-api-2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
